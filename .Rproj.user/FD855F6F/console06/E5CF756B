@@ -263,3 +263,31 @@ remote: Resolving deltas:   0% (0/21)[Kremote: Resolving deltas:   4% (1/21)[
 To https://github.com/carajohnston/project3.git
    84569e0..c4cc6a4  master -> master
 ]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ [K]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git add  .
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git commmit -m "add blog post"
+[master 6ee5d29] add blog post
+ Committer: Cara Johnston <cjj884@educcomp02.ccbb.utexas.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 47 insertions(+), 3 deletions(-)
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git pushh origin master
+Username for 'https://github.com': carajohnston
+Password for 'https://carajohnston@github.com': 
+Counting objects: 8, done.
+Delta compression using up to 16 threads.
+Compressing objects:  12% (1/8)   Compressing objects:  25% (2/8)   Compressing objects:  37% (3/8)   Compressing objects:  50% (4/8)   Compressing objects:  62% (5/8)   Compressing objects:  75% (6/8)   Compressing objects:  87% (7/8)   Compressing objects: 100% (8/8)   Compressing objects: 100% (8/8), done.
+Writing objects:  12% (1/8)   Writing objects:  25% (2/8)   Writing objects:  37% (3/8)   Writing objects:  50% (4/8)   Writing objects:  62% (5/8)   Writing objects:  75% (6/8)   Writing objects:  87% (7/8)   Writing objects: 100% (8/8)   Writing objects: 100% (8/8), 1.63 KiB | 555.00 KiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/5)[Kremote: Resolving deltas:  20% (1/5)[Kremote: Resolving deltas:  40% (2/5)[Kremote: Resolving deltas:  60% (3/5)[Kremote: Resolving deltas:  80% (4/5)[Kremote: Resolving deltas: 100% (5/5)[Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
+To https://github.com/carajohnston/project3.git
+   c4cc6a4..6ee5d29  master -> master
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git add  .
