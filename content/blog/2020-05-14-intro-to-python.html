@@ -1,0 +1,35 @@
+---
+title: Intro to Python
+author: Cara Johnston
+date: '2020-05-14'
+slug: intro-to-python
+categories: []
+tags: []
+description: ''
+---
+
+
+
+<div id="python-basics" class="section level2">
+<h2>Python Basics</h2>
+<p>Python was pretty challenging for me to learn at first, so here are some basics that should help other python learners!</p>
+<p>One of the coolest parts about using Python in RStudio is combining the two together. This allows you to combine objects from both Python and R, which can let you write fun sentences.</p>
+<pre class="r"><code>library(reticulate)
+wow&lt;-&quot;python can be&quot;</code></pre>
+<pre class="python"><code>surprise =&quot;really fun&quot;
+print(r.wow,surprise)</code></pre>
+<pre><code>## (&#39;python can be&#39;, &#39;really fun&#39;)</code></pre>
+<p>Another thing that is unique about Python (and kinda cool!) is indexing. To try this out, first we have to create a list:</p>
+<pre class="python"><code>list=[&quot;apple&quot;, &quot;orange&quot;, &quot;banana&quot;, &quot;cherry&quot;]</code></pre>
+<p>Once you have a list created, you can start indexing. Note: in python, indexing begins at position “0”, instead of “1”. In this case, the object in position 1 is “orange”, not “apple”.</p>
+<pre class="python"><code>list[1]</code></pre>
+<pre><code>## &#39;orange&#39;</code></pre>
+<p>Indexing can also be used to grab a portion of the list. To get the middle two objects from the list, we can use the following code:</p>
+<pre class="python"><code>list[1:3]</code></pre>
+<pre><code>## [&#39;orange&#39;, &#39;banana&#39;]</code></pre>
+<p>One last trick!</p>
+<p>Indexing can also be used to grab every other object from a list:</p>
+<pre class="python"><code>list[::2]</code></pre>
+<pre><code>## [&#39;apple&#39;, &#39;banana&#39;]</code></pre>
+<p>I still have a lot to learn, but I’m grateful for the few commands I have learned. Hopefully I will have more tricks to share in the future!</p>
+</div>
