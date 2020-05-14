@@ -1,7 +1,7 @@
 ---
 title: "Project 2"
 author: "Cara Johnston"
-date: "5/1/2020"
+date: "2020-05-01"
 output:
   pdf_document: default
   html_document: default
@@ -17,7 +17,6 @@ library(tidyverse)
 
 ```{r r setup, include=FALSE}
 
-install.packages("carData")
 library(carData)
 
 Prof_Salaries <- Salaries

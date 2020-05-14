@@ -1,7 +1,7 @@
 ---
 title: "Project 2"
 author: "Cara Johnston"
-date: "5/1/2020"
+date: "2020-05-01"
 output:
   pdf_document: default
   html_document: default
@@ -99,7 +99,7 @@ mean(Prof_Salaries[Prof_Salaries$sex==&quot;Female&quot;,]$salary)-
               mean(Prof_Salaries[Prof_Salaries$sex==&quot;Male&quot;,]$salary)</code></pre>
 <pre><code>## [1] -14088.01</code></pre>
 <pre class="r"><code>mean(rand&gt; 14088.01 | rand&lt; -14088.01)</code></pre>
-<pre><code>## [1] 0.0066</code></pre>
+<pre><code>## [1] 0.007</code></pre>
 <pre class="r"><code>#Visualization
 {hist(rand,main=&quot;Null Distribution and Test Statistic&quot;,xlab=&quot;Random Distribution&quot;); abline(v = 14088.01,col=&quot;red&quot;)}</code></pre>
 <p><img src="/project2_files/figure-html/Rand.%20Test-1.png" width="768" style="display: block; margin: auto;" /></p>
@@ -231,7 +231,7 @@ samp_distn&lt;-replicate(5000, {
 
 samp_distn%&gt;%t%&gt;%as.data.frame%&gt;%summarize_all(sd)</code></pre>
 <pre><code>##   (Intercept) yrs.service_c yrs.since.phd_c yrs.service_c:yrs.since.phd_c
-## 1    1931.724      302.3172        286.8094                      10.42182</code></pre>
+## 1    1926.258      298.5988        285.5524                      10.47817</code></pre>
 <p>The bootstrapped standard error values for all variables fell in between the original and robust standard error values, though they were closer to the robust SEs. This will also change the p-values, as they should now be slightly higher than the original p-values, and slightly smaller than the p-values determined using the robust SEs.</p>
 <p><strong>5. Logistic Regression</strong></p>
 <pre class="r"><code>fit&lt;-glm(discipline~yrs.service+salary,data=Prof_Salaries,family=binomial(link=&quot;logit&quot;))

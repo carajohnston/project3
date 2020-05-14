@@ -1,3 +1,221 @@
 ]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ [K]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ [K]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[[00m$ [K[A]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git innit #initialize local git respository
 Initialized empty Git repository in /stor/home/cjj884/Project 3/Wesbite/.git/
 ]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git addd . #add all files in repository to be uploaaded
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git coommit -m "first website commit"
+[master (root-commit) 84569e0] first website commit
+ Committer: Cara Johnston <cjj884@educcomp02.ccbb.utexas.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 178 files changed, 15683 insertions(+)
+ create mode 100644 .RData
+ create mode 100644 .Rhistory
+ create mode 100644 .Rproj.user/FD855F6F/build_options
+ create mode 100644 .Rproj.user/FD855F6F/console06/E5CF756B
+ create mode 100644 .Rproj.user/FD855F6F/console06/E5CF756B.env
+ create mode 100644 .Rproj.user/FD855F6F/console06/INDEX001
+ create mode 100644 .Rproj.user/FD855F6F/pcs/files-pane.pper
+ create mode 100644 .Rproj.user/FD855F6F/pcs/source-pane.pper
+ create mode 100644 .Rproj.user/FD855F6F/pcs/windowlayoutstate.pper
+ create mode 100644 .Rproj.user/FD855F6F/pcs/workbench-pane.pper
+ create mode 100644 .Rproj.user/FD855F6F/persistent-state
+ create mode 100644 .Rproj.user/FD855F6F/saved_source_markers
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/1B4139AC
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/34476E99
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/39C6F41B
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/636D7E49
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/6C693836
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/6F23AA45
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/71EA62B6
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/72C8DF34
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/BBA59CF
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/C0B4D894
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/EA6E46DC
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/ED97026B
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/FD8A48EE
+ create mode 100644 .Rproj.user/FD855F6F/sources/prop/INDEX
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/4AE768D7
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/4AE768D7-contents
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/57A87662
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/57A87662-contents
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/64741F68
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/64741F68-contents
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/B339C96B
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/B339C96B-contents
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/C39C802D
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/C39C802D-contents
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/D104F491
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/D104F491-contents
+ create mode 100644 .Rproj.user/FD855F6F/sources/s-20340c31/lock_file
+ create mode 100644 .Rproj.user/shared/notebooks/61D68DBD-project2/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/6C431CC5-Project 2/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/6C431CC5-Project 2/1/s/csetup_chunk/000002.csv
+ create mode 100644 .Rproj.user/shared/notebooks/7C2B247D-project1/1/FD855F6F20340c31/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/7C2B247D-project1/1/s/chunks.json
+ create mode 100644 .Rproj.user/shared/notebooks/patch-chunk-names
+ create mode 100644 .Rproj.user/shared/notebooks/paths
+ create mode 100644 Wesbite.Rproj
+ create mode 100644 config.toml
+ create mode 100644 content/NetflixViewingHistory.xlsx
+ create mode 100644 content/austin_weather.csv
+ create mode 100644 content/blog/2015-07-23-r-rmarkdown.Rmd
+ create mode 100644 content/blog/2015-07-23-r-rmarkdown.html
+ create mode 100644 content/blog/creating-a-new-theme.md
+ create mode 100644 content/blog/goisforlovers.md
+ create mode 100644 content/blog/hugoisforlovers.md
+ create mode 100644 content/blog/migrate-from-jekyll.md
+ create mode 100644 content/project1.Rmd
+ create mode 100644 content/project1.html
+ create mode 100644 content/project2.Rmd
+ create mode 100644 content/project2.html
+ create mode 100644 content/projects.md
+ create mode 100644 index.Rmd
+ create mode 100644 public/404.html
+ create mode 100644 public/NetflixViewingHistory.xlsx
+ create mode 100644 public/Resume.pdf
+ create mode 100644 public/austin_weather.csv
+ create mode 100644 public/blog/2015-07-23-r-rmarkdown.Rmd
+ create mode 100644 public/blog/2015-07-23-r-rmarkdown/index.html
+ create mode 100644 public/blog/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png
+ create mode 100644 public/blog/creating-a-new-theme/index.html
+ create mode 100644 public/blog/goisforlovers/index.html
+ create mode 100644 public/blog/hugoisforlovers/index.html
+ create mode 100644 public/blog/index.html
+ create mode 100644 public/blog/index.xml
+ create mode 100644 public/blog/migrate-from-jekyll/index.html
+ create mode 100644 public/categories/development/index.html
+ create mode 100644 public/categories/development/index.xml
+ create mode 100644 public/categories/golang/index.html
+ create mode 100644 public/categories/golang/index.xml
+ create mode 100644 public/categories/index.html
+ create mode 100644 public/categories/index.xml
+ create mode 100644 public/categories/projects/index.html
+ create mode 100644 public/categories/projects/index.xml
+ create mode 100644 public/categories/r/index.html
+ create mode 100644 public/categories/r/index.xml
+ create mode 100644 public/css/main.css
+ create mode 100644 public/img/IMG_0542.jpg
+ create mode 100644 public/img/profile.png
+ create mode 100644 public/index.html
+ create mode 100644 public/index.xml
+ create mode 100644 public/js/docs.min.js
+ create mode 100644 public/js/ie10-viewport-bug-workaround.js
+ create mode 100644 public/js/main.js
+ create mode 100644 public/project1.Rmd
+ create mode 100644 public/project1/index.html
+ create mode 100644 public/project1_files/figure-html/heatmap-1.png
+ create mode 100644 public/project1_files/figure-html/plot 2-1.png
+ create mode 100644 public/project1_files/figure-html/plot1-1.png
+ create mode 100644 public/project1_files/figure-html/unnamed-chunk-3-1.png
+ create mode 100644 public/project1_files/figure-html/unnamed-chunk-3-2.png
+ create mode 100644 public/project2.Rmd
+ create mode 100644 public/project2/index.html
+ create mode 100644 public/project2_files/figure-html/Linear Regression-1.png
+ create mode 100644 public/project2_files/figure-html/Linear Regression-2.png
+ create mode 100644 public/project2_files/figure-html/Linear Regression-3.png
+ create mode 100644 public/project2_files/figure-html/Logistic Regression-1.png
+ create mode 100644 public/project2_files/figure-html/Logistic Regression-2.png
+ create mode 100644 public/project2_files/figure-html/MANOVA-1.png
+ create mode 100644 public/project2_files/figure-html/Rand. Test-1.png
+ create mode 100644 public/projects/index.html
+ create mode 100644 public/sitemap.xml
+ create mode 100644 public/tags/development/index.html
+ create mode 100644 public/tags/development/index.xml
+ create mode 100644 public/tags/go/index.html
+ create mode 100644 public/tags/go/index.xml
+ create mode 100644 public/tags/golang/index.html
+ create mode 100644 public/tags/golang/index.xml
+ create mode 100644 public/tags/hugo/index.html
+ create mode 100644 public/tags/hugo/index.xml
+ create mode 100644 public/tags/index.html
+ create mode 100644 public/tags/index.xml
+ create mode 100644 public/tags/plot/index.html
+ create mode 100644 public/tags/plot/index.xml
+ create mode 100644 public/tags/projects/index.html
+ create mode 100644 public/tags/projects/index.xml
+ create mode 100644 public/tags/r-markdown/index.html
+ create mode 100644 public/tags/r-markdown/index.xml
+ create mode 100644 public/tags/regression/index.html
+ create mode 100644 public/tags/regression/index.xml
+ create mode 100644 public/tags/templates/index.html
+ create mode 100644 public/tags/templates/index.xml
+ create mode 100644 public/tags/themes/index.html
+ create mode 100644 public/tags/themes/index.xml
+ create mode 100644 static/Resume.pdf
+ create mode 100644 static/blog/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png
+ create mode 100644 static/img/IMG_0542.jpg
+ create mode 100644 static/img/profile.png
+ create mode 100644 static/project1_files/figure-html/heatmap-1.png
+ create mode 100644 static/project1_files/figure-html/plot 2-1.png
+ create mode 100644 static/project1_files/figure-html/plot1-1.png
+ create mode 100644 static/project1_files/figure-html/unnamed-chunk-3-1.png
+ create mode 100644 static/project1_files/figure-html/unnamed-chunk-3-2.png
+ create mode 100644 static/project2_files/figure-html/Linear Regression-1.png
+ create mode 100644 static/project2_files/figure-html/Linear Regression-2.png
+ create mode 100644 static/project2_files/figure-html/Linear Regression-3.png
+ create mode 100644 static/project2_files/figure-html/Logistic Regression-1.png
+ create mode 100644 static/project2_files/figure-html/Logistic Regression-2.png
+ create mode 100644 static/project2_files/figure-html/MANOVA-1.png
+ create mode 100644 static/project2_files/figure-html/Rand. Test-1.png
+ create mode 100644 themes/hugo-sustain/LICENSE.md
+ create mode 100644 themes/hugo-sustain/README.md
+ create mode 100644 themes/hugo-sustain/archetypes/default.md
+ create mode 100644 themes/hugo-sustain/exampleSite/config.toml
+ create mode 100644 themes/hugo-sustain/exampleSite/content/blog/creating-a-new-theme.md
+ create mode 100644 themes/hugo-sustain/exampleSite/content/blog/goisforlovers.md
+ create mode 100644 themes/hugo-sustain/exampleSite/content/blog/hugoisforlovers.md
+ create mode 100644 themes/hugo-sustain/exampleSite/content/blog/migrate-from-jekyll.md
+ create mode 100644 themes/hugo-sustain/exampleSite/content/projects.md
+ create mode 100644 themes/hugo-sustain/exampleSite/data/projects.yml
+ create mode 100644 themes/hugo-sustain/exampleSite/static/img/profile.png
+ create mode 100644 themes/hugo-sustain/images/screenshot.png
+ create mode 100644 themes/hugo-sustain/images/tn.png
+ create mode 100644 themes/hugo-sustain/layouts/404.html
+ create mode 100644 themes/hugo-sustain/layouts/_default/list.html
+ create mode 100644 themes/hugo-sustain/layouts/_default/projects.html
+ create mode 100644 themes/hugo-sustain/layouts/_default/single.html
+ create mode 100644 themes/hugo-sustain/layouts/index.html
+ create mode 100644 themes/hugo-sustain/layouts/partials/disqus.html
+ create mode 100644 themes/hugo-sustain/layouts/partials/footer.html
+ create mode 100644 themes/hugo-sustain/layouts/partials/head.html
+ create mode 100644 themes/hugo-sustain/layouts/partials/header.html
+ create mode 100644 themes/hugo-sustain/layouts/partials/js.html
+ create mode 100644 themes/hugo-sustain/layouts/partials/social.html
+ create mode 100644 themes/hugo-sustain/static/css/main.css
+ create mode 100644 themes/hugo-sustain/static/js/docs.min.js
+ create mode 100644 themes/hugo-sustain/static/js/ie10-viewport-bug-workaround.js
+ create mode 100644 themes/hugo-sustain/static/js/main.js
+ create mode 100644 themes/hugo-sustain/theme.toml
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git reemote add origin https://github.com/USERNAME//WEBSITE_REPOSITORY.git #re
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git reemote add origin https://github.com/USERNAME//WEBSITE_REPOSITORY.git #re[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[Kcarajohnsston/project3.git
+fatal: remote origin already exists.
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ $ git  remote set-url origin https://github.com/tayylorlwolf/SDSProject.git[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[Kgit reemote set-url origin https://github.com/carajjohnston/project3.git
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git puush origin master
+Username for 'https://github.com': carajohnston            ^[[A    ton
+Password for 'https://ton@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/carajohnston/project3.git/'
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git puush origin master
+Username for 'https://github.com': carajohnston
+Password for 'https://carajohnston@github.com': 
+Counting objects: 215, done.
+Delta compression using up to 16 threads.
+Compressing objects:   0% (1/182)   Compressing objects:   1% (2/182)   Compressing objects:   2% (4/182)   Compressing objects:   3% (6/182)   Compressing objects:   4% (8/182)   Compressing objects:   5% (10/182)   Compressing objects:   6% (11/182)   Compressing objects:   7% (13/182)   Compressing objects:   8% (15/182)   Compressing objects:   9% (17/182)   Compressing objects:  10% (19/182)   Compressing objects:  11% (21/182)   Compressing objects:  12% (22/182)   Compressing objects:  13% (24/182)   Compressing objects:  14% (26/182)   Compressing objects:  15% (28/182)   Compressing objects:  16% (30/182)   Compressing objects:  17% (31/182)   Compressing objects:  18% (33/182)   Compressing objects:  19% (35/182)   Compressing objects:  20% (37/182)   Compressing objects:  21% (39/182)   Compressing objects:  22% (41/182)   Compressing objects:  23% (42/182)   Compressing objects:  24% (44/182)   Compressing objects:  25% (46/182)   Compressing objects:  26% (48/182)   Compressing objects:  27% (50/182)   Compressing objects:  28% (51/182)   Compressing objects:  29% (53/182)   Compressing objects:  30% (55/182)   Compressing objects:  31% (57/182)   Compressing objects:  32% (59/182)   Compressing objects:  33% (61/182)   Compressing objects:  34% (62/182)   Compressing objects:  35% (64/182)   Compressing objects:  36% (66/182)   Compressing objects:  37% (68/182)   Compressing objects:  38% (70/182)   Compressing objects:  39% (71/182)   Compressing objects:  40% (73/182)   Compressing objects:  41% (75/182)   Compressing objects:  42% (77/182)   Compressing objects:  43% (79/182)   Compressing objects:  44% (81/182)   Compressing objects:  45% (82/182)   Compressing objects:  46% (84/182)   Compressing objects:  47% (86/182)   Compressing objects:  48% (88/182)   Compressing objects:  49% (90/182)   Compressing objects:  50% (91/182)   Compressing objects:  51% (93/182)   Compressing objects:  52% (95/182)   Compressing objects:  53% (97/182)   Compressing objects:  54% (99/182)   Compressing objects:  55% (101/182)   Compressing objects:  56% (102/182)   Compressing objects:  57% (104/182)   Compressing objects:  58% (106/182)   Compressing objects:  59% (108/182)   Compressing objects:  60% (110/182)   Compressing objects:  61% (112/182)   Compressing objects:  62% (113/182)   Compressing objects:  63% (115/182)   Compressing objects:  64% (117/182)   Compressing objects:  65% (119/182)   Compressing objects:  66% (121/182)   Compressing objects:  67% (122/182)   Compressing objects:  68% (124/182)   Compressing objects:  69% (126/182)   Compressing objects:  70% (128/182)   Compressing objects:  71% (130/182)   Compressing objects:  72% (132/182)   Compressing objects:  73% (133/182)   Compressing objects:  74% (135/182)   Compressing objects:  75% (137/182)   Compressing objects:  76% (139/182)   Compressing objects:  77% (141/182)   Compressing objects:  78% (142/182)   Compressing objects:  79% (144/182)   Compressing objects:  80% (146/182)   Compressing objects:  81% (148/182)   Compressing objects:  82% (150/182)   Compressing objects:  83% (152/182)   Compressing objects:  84% (153/182)   Compressing objects:  85% (155/182)   Compressing objects:  86% (157/182)   Compressing objects:  87% (159/182)   Compressing objects:  88% (161/182)   Compressing objects:  89% (162/182)   Compressing objects:  90% (164/182)   Compressing objects:  91% (166/182)   Compressing objects:  92% (168/182)   Compressing objects:  93% (170/182)   Compressing objects:  94% (172/182)   Compressing objects:  95% (173/182)   Compressing objects:  96% (175/182)   Compressing objects:  97% (177/182)   Compressing objects:  98% (179/182)   Compressing objects:  99% (181/182)   Compressing objects: 100% (182/182)   Compressing objects: 100% (182/182), done.
+Writing objects:   0% (1/215)   Writing objects:   1% (3/215)   Writing objects:   2% (5/215)   Writing objects:   3% (7/215)   Writing objects:   4% (9/215)   Writing objects:   5% (11/215)   Writing objects:   6% (13/215)   Writing objects:   7% (16/215)   Writing objects:   8% (18/215)   Writing objects:   9% (20/215)   Writing objects:  10% (22/215)   Writing objects:  11% (24/215)   Writing objects:  12% (26/215)   Writing objects:  13% (28/215)   Writing objects:  14% (31/215)   Writing objects:  15% (34/215)   Writing objects:  16% (35/215)   Writing objects:  17% (37/215)   Writing objects:  18% (39/215)   Writing objects:  19% (41/215)   Writing objects:  20% (43/215)   Writing objects:  21% (46/215)   Writing objects:  22% (48/215)   Writing objects:  23% (50/215)   Writing objects:  24% (52/215)   Writing objects:  25% (54/215)   Writing objects:  26% (56/215)   Writing objects:  27% (59/215)   Writing objects:  28% (61/215)   Writing objects:  29% (63/215)   Writing objects:  30% (65/215)   Writing objects:  31% (67/215)   Writing objects:  32% (69/215)   Writing objects:  33% (71/215)   Writing objects:  34% (75/215)   Writing objects:  35% (76/215)   Writing objects:  36% (78/215)   Writing objects:  37% (80/215)   Writing objects:  38% (82/215)   Writing objects:  39% (84/215)   Writing objects:  40% (86/215)   Writing objects:  41% (89/215)   Writing objects:  42% (91/215)   Writing objects:  43% (93/215)   Writing objects:  44% (95/215)   Writing objects:  45% (97/215)   Writing objects:  46% (99/215)   Writing objects:  47% (102/215)   Writing objects:  48% (104/215)   Writing objects:  49% (106/215)   Writing objects:  51% (110/215)   Writing objects:  52% (113/215)   Writing objects:  53% (114/215)   Writing objects:  54% (118/215)   Writing objects:  55% (119/215)   Writing objects:  56% (121/215)   Writing objects:  57% (123/215)   Writing objects:  58% (125/215)   Writing objects:  59% (127/215)   Writing objects:  60% (129/215)   Writing objects:  61% (132/215)   Writing objects:  62% (134/215)   Writing objects:  63% (136/215)   Writing objects:  64% (138/215)   Writing objects:  65% (140/215)   Writing objects:  66% (142/215)   Writing objects:  67% (145/215)   Writing objects:  68% (147/215)   Writing objects:  69% (149/215)   Writing objects:  70% (151/215)   Writing objects:  71% (153/215)   Writing objects:  72% (155/215)   Writing objects:  73% (157/215)   Writing objects:  74% (160/215)   Writing objects:  75% (162/215)   Writing objects:  76% (164/215)   Writing objects:  77% (166/215)   Writing objects:  78% (168/215)   Writing objects:  79% (170/215)   Writing objects:  80% (172/215)   Writing objects:  81% (175/215)   Writing objects:  82% (177/215)   Writing objects:  83% (179/215)   Writing objects:  84% (181/215)   Writing objects:  85% (183/215)   Writing objects:  86% (185/215)   Writing objects:  87% (188/215)   Writing objects:  88% (190/215)   Writing objects:  89% (192/215)   Writing objects:  90% (194/215)   Writing objects:  91% (196/215)   Writing objects:  92% (198/215)   Writing objects:  93% (200/215)   Writing objects:  94% (204/215)   Writing objects:  95% (205/215)   Writing objects:  96% (207/215)   Writing objects:  97% (209/215)   Writing objects:  98% (211/215)   Writing objects:  99% (213/215)   Writing objects: 100% (215/215)   Writing objects: 100% (215/215), 2.05 MiB | 4.74 MiB/s, done.
+Total 215 (delta 47), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/47)[Kremote: Resolving deltas:  10% (5/47)[Kremote: Resolving deltas:  12% (6/47)[Kremote: Resolving deltas:  14% (7/47)[Kremote: Resolving deltas:  17% (8/47)[Kremote: Resolving deltas:  19% (9/47)[Kremote: Resolving deltas:  29% (14/47)[Kremote: Resolving deltas:  55% (26/47)[Kremote: Resolving deltas:  59% (28/47)[Kremote: Resolving deltas:  61% (29/47)[Kremote: Resolving deltas:  63% (30/47)[Kremote: Resolving deltas:  70% (33/47)[Kremote: Resolving deltas:  80% (38/47)[Kremote: Resolving deltas:  91% (43/47)[Kremote: Resolving deltas:  95% (45/47)[Kremote: Resolving deltas: 100% (47/47)[Kremote: Resolving deltas: 100% (47/47), done.[K
+To https://github.com/carajohnston/project3.git
+ * [new branch]      master -> master
+]0;/stor/home/cjj884/Project 3/Wesbite]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ [K]0;cjj884@educcomp02: ~/Project 3/Wesbite[01;32mcjj884@educcomp02[00m:[01;34m~/Project 3/Wesbite[00m$ git add .

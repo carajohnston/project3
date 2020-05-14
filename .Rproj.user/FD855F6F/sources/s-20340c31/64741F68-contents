@@ -2,3 +2,12 @@ read.csv("austin_weather.csv")
 austin_weather<-austin_weather.csv
 
 blogdown::serve_site()
+
+#after blog post
+cd ~/Directory/Containing/Your/Website
+
+git add .
+
+git commit -m "add blog post"
+
+git push origin master
