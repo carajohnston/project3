@@ -1,0 +1,271 @@
+---
+title: "Project 1"
+author: "Cara Johnston"
+date: "2020-3-15"
+output:
+  html_document: default
+  pdf_document: default
+
+---
+
+
+
+<p><strong>Introduction</strong></p>
+<p>For this project, I chose to use two datasets. The first dataset is my personal Netflix data including everything I have streamed from 2014 to present day, and the second dataset is Austin weather from 2013 to 2017. The Netflix dataset has only two variables, the TV show/movie title and the date it was streamed. I was able to download the data directly from the Netflix website while signed into my account. The Austin weather dataset has many variables, including date and the high, low and average temperatures, dew points, humidity, sea level pressure, visibility and wind, as well as precipitation and special weather events (such as thunderstorms). I found this dataset on Kaggle, because I thought it would be interesting to see the weather on days that I watched shows or movies on Netflix. I predict that there will be an association between bad weather days, such as cold temperatures or rain or storms, and the amount of shows or movies streamed that day.</p>
+<p><strong>Joining/Merging</strong></p>
+<pre class="r"><code>library(tidyverse)
+library(readxl)
+NetflixViewingHistory &lt;- read_excel(&quot;NetflixViewingHistory.xlsx&quot;)
+austin_weather &lt;- read.csv(&quot;austin_weather.csv&quot;)
+
+NetflixViewingHistory &lt;- NetflixViewingHistory %&gt;% mutate(Type = ifelse(grepl(&quot;Season&quot;, 
+    Title), &quot;TV&quot;, &quot;Movie&quot;))
+
+ProjectData &lt;- NetflixViewingHistory %&gt;% inner_join(austin_weather)</code></pre>
+<p>I chose to use an inner join to combine the datasets, because I was only interested in the weather data for dates that were included in the Netflix dataset. This resulted in the loss of quite a bit of the weather dataset, but I did not feel that the data lost (days that Netlfix was not watched) was relevant in this project. However, this type of join also resulted in the loss of more recent data in the Netflix dataset, as the weather dataset only contains data until July of 2017, so data from Netflix titles watched after that was unfortunately excluded.</p>
+<p><strong>Wrangling</strong></p>
+<pre class="r"><code># Total number of movies and TV shows watched
+ProjectData %&gt;% group_by(Type) %&gt;% summarize(TitlesWatched = n_distinct(Title))</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   Type  TitlesWatched
+##   &lt;chr&gt;         &lt;int&gt;
+## 1 Movie           167
+## 2 TV              801</code></pre>
+<pre class="r"><code># number of episodes of Grey&#39;s Anatomy watched
+ProjectData %&gt;% filter(grepl(&quot;Grey&quot;, Title)) %&gt;% summarize(Episodes_of_Greys = n_distinct(Title))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   Episodes_of_Greys
+##               &lt;int&gt;
+## 1               175</code></pre>
+<pre class="r"><code># Max number of titles watched in a day
+ProjectData %&gt;% group_by(Date) %&gt;% summarize(Titles_Watched = n_distinct(Title)) %&gt;% 
+    arrange(desc(Titles_Watched))</code></pre>
+<pre><code>## # A tibble: 288 x 2
+##    Date       Titles_Watched
+##    &lt;chr&gt;               &lt;int&gt;
+##  1 2016-08-16             16
+##  2 2015-10-10             13
+##  3 2016-08-15             13
+##  4 2017-07-17             11
+##  5 2016-07-31             10
+##  6 2016-08-01             10
+##  7 2017-02-12             10
+##  8 2015-03-22              9
+##  9 2015-10-11              9
+## 10 2016-06-08              9
+## # … with 278 more rows</code></pre>
+<pre class="r"><code># Temperature range
+ProjectData %&gt;% select(Date, TempHighF, TempAvgF, TempLowF) %&gt;% 
+    mutate(TempRangeF = TempHighF - TempLowF) %&gt;% group_by(Date) %&gt;% 
+    summarize(DailyTempRange = mean(TempRangeF)) %&gt;% arrange(desc(DailyTempRange))</code></pre>
+<pre><code>## # A tibble: 288 x 2
+##    Date       DailyTempRange
+##    &lt;chr&gt;               &lt;dbl&gt;
+##  1 2014-03-02             45
+##  2 2017-04-03             41
+##  3 2017-05-01             40
+##  4 2014-04-09             39
+##  5 2016-01-28             39
+##  6 2016-01-29             38
+##  7 2014-12-29             37
+##  8 2015-12-27             37
+##  9 2014-03-18             36
+## 10 2017-02-22             36
+## # … with 278 more rows</code></pre>
+<pre class="r"><code># mean, median, sd
+ProjectData %&gt;% group_by(Type) %&gt;% summarize(mean_temp = mean(TempAvgF, 
+    na.rm = T), sd_temp = sd(TempAvgF, na.rm = T), med_temp = median(TempAvgF, 
+    na.rm = T))</code></pre>
+<pre><code>## # A tibble: 2 x 4
+##   Type  mean_temp sd_temp med_temp
+##   &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;int&gt;
+## 1 Movie      67.2    14.3       68
+## 2 TV         71.9    14.3       74</code></pre>
+<pre class="r"><code>ProjectData %&gt;% group_by(Events) %&gt;% mutate_at(c(&quot;HumidityAvgPercent&quot;), 
+    as.numeric) %&gt;% summarize(mean_temp = mean(TempAvgF, na.rm = T), 
+    sd_temp = sd(TempAvgF, na.rm = T), med_temp = median(TempAvgF, 
+        na.rm = T), mean_humidity = mean(HumidityAvgPercent, 
+        na.rm = T), sd_humidity = sd(HumidityAvgPercent, na.rm = T), 
+    med_humidity = median(HumidityAvgPercent, na.rm = T)) %&gt;% 
+    pivot_longer(c(&quot;mean_temp&quot;, &quot;sd_temp&quot;, &quot;med_temp&quot;, &quot;mean_humidity&quot;, 
+        &quot;sd_humidity&quot;, &quot;med_humidity&quot;), names_to = &quot;SummaryStats&quot;, 
+        values_to = &quot;Value&quot;)</code></pre>
+<pre><code>## # A tibble: 42 x 3
+##    Events SummaryStats  Value
+##    &lt;fct&gt;  &lt;chr&gt;         &lt;dbl&gt;
+##  1 &quot; &quot;    mean_temp     71.6 
+##  2 &quot; &quot;    sd_temp       15.0 
+##  3 &quot; &quot;    med_temp      74   
+##  4 &quot; &quot;    mean_humidity 35.9 
+##  5 &quot; &quot;    sd_humidity    9.95
+##  6 &quot; &quot;    med_humidity  37   
+##  7 Fog    mean_temp     61.2 
+##  8 Fog    sd_temp       11.3 
+##  9 Fog    med_temp      67   
+## 10 Fog    mean_humidity 46.9 
+## # … with 32 more rows</code></pre>
+<pre class="r"><code># Average temperature grouped by Date and Type
+ProjectData %&gt;% select(Date, Type, TempAvgF) %&gt;% group_by(Date, 
+    Type) %&gt;% summarize(mean_temp = mean(TempAvgF, na.rm = T)) %&gt;% 
+    arrange(desc(mean_temp))</code></pre>
+<pre><code>## # A tibble: 314 x 3
+## # Groups:   Date [288]
+##    Date       Type  mean_temp
+##    &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt;
+##  1 2016-08-10 TV           92
+##  2 2016-08-12 TV           92
+##  3 2016-08-09 TV           91
+##  4 2017-07-21 TV           91
+##  5 2017-07-25 TV           91
+##  6 2017-07-26 Movie        91
+##  7 2017-07-26 TV           91
+##  8 2016-08-11 TV           90
+##  9 2017-07-13 Movie        90
+## 10 2017-07-13 TV           90
+## # … with 304 more rows</code></pre>
+<pre class="r"><code># Correlation
+ProjectData %&gt;% na.omit %&gt;% mutate_all(as.numeric) %&gt;% summarize(cor(TempAvgF, 
+    HumidityAvgPercent))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   `cor(TempAvgF, HumidityAvgPercent)`
+##                                 &lt;dbl&gt;
+## 1                             -0.0417</code></pre>
+<pre class="r"><code>ProjectDataNum &lt;- ProjectData %&gt;% na.omit %&gt;% mutate_at(c(&quot;TempAvgF&quot;, 
+    &quot;HumidityAvgPercent&quot;, &quot;PrecipitationSumInches&quot;), as.numeric) %&gt;% 
+    select(TempAvgF, HumidityAvgPercent, PrecipitationSumInches)
+
+cor(ProjectDataNum)</code></pre>
+<pre><code>##                           TempAvgF HumidityAvgPercent PrecipitationSumInches
+## TempAvgF                1.00000000        -0.04170102             0.06031142
+## HumidityAvgPercent     -0.04170102         1.00000000             0.38007890
+## PrecipitationSumInches  0.06031142         0.38007890             1.00000000</code></pre>
+<p><em>Summary Statistics:</em> From my summary statistics, I found several interesting patterns from my Netflix history. In total, I found that I watched 167 movies and 801 TV shows, showing that I watch significantly fewer movies than TV shows. Of the TV shows watched, 175 of them were episodes of Grey’s Anatomy, my favorite TV show. I also found that the most number of Netflix titles watched in one day was 16, which occured on 8/16/16. To further analyze the data, I was also interested in how my Netflix watching patterns may be affected by the weather. First, out of curiosity, I looked at the variation in weather by calculating the range in temperature for each date. I found the highest range to be 45 degrees, meaning the high and low temperature for the day were 45 degrees apart, which I find to be a significant difference. I also found the mean, median and standard deviation of the average temperature grouped by the type of title watched (TV show or movie) and by weather events, such as rain or thunderstorms. I also looked at the mean, median and standard deviation for humidity based on the weather events. I found that the mean temperature was slightly higher on days that I watched TV shows than on days that I watched movies. As one might expect, mean humidity seemed to be higher on days that had weather events, such as rain, though mean temperature did not seem to follow any pattern. In addition, I looked at mean temperature grouped by both date and type of title and found that on the days with highest average temperature, I generally watched TV shows rather than movies. Lastly, I looked at the correlation between three numeric variables: average temperature, average humidity, and average precipitation. I found the highest correlation to be between precipitation and temperature and a negative correlation between humidity and temperature.</p>
+<p><em>Pivot explanation:</em> After creating a table with quite a few summary statistics of the mean, median and standard deviation of the average daily temperature and humidity for each type of weather event, I used the pivot_longer() function to provide a more organized display of the data, showing the summary statistic for each event.</p>
+<p><strong>Visualizing</strong></p>
+<pre class="r"><code>## Correlation Heatmap
+
+tidycor &lt;- cor(ProjectDataNum) %&gt;% as.data.frame %&gt;% rownames_to_column %&gt;% 
+    pivot_longer(-1, names_to = &quot;name&quot;, values_to = &quot;correlation&quot;)
+
+head(tidycor)</code></pre>
+<pre><code>## # A tibble: 6 x 3
+##   rowname            name                   correlation
+##   &lt;chr&gt;              &lt;chr&gt;                        &lt;dbl&gt;
+## 1 TempAvgF           TempAvgF                    1     
+## 2 TempAvgF           HumidityAvgPercent         -0.0417
+## 3 TempAvgF           PrecipitationSumInches      0.0603
+## 4 HumidityAvgPercent TempAvgF                   -0.0417
+## 5 HumidityAvgPercent HumidityAvgPercent          1     
+## 6 HumidityAvgPercent PrecipitationSumInches      0.380</code></pre>
+<pre class="r"><code>tidycor %&gt;% ggplot(aes(rowname, name, fill = correlation)) + 
+    geom_tile() + scale_fill_gradient2(low = &quot;yellow&quot;, mid = &quot;white&quot;, 
+    high = &quot;orange&quot;) + geom_text(aes(label = round(correlation, 
+    2)), color = &quot;black&quot;, size = 4) + theme(axis.text.x = element_text(angle = 90, 
+    hjust = 1)) + coord_fixed() + ggtitle(&quot;Correlation Heatmap&quot;) + 
+    theme(axis.title.x = element_blank(), axis.title.y = element_blank(), 
+        legend.position = &quot;left&quot;)</code></pre>
+<p><img src="/project1_files/figure-html/heatmap-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>library(ggplot2)
+
+Plot1 &lt;- ProjectData %&gt;% mutate(Year = case_when(grepl(&quot;2017&quot;, 
+    Date) ~ &quot;2017&quot;, grepl(&quot;2016&quot;, Date) ~ &quot;2016&quot;, grepl(&quot;2015&quot;, 
+    Date) ~ &quot;2015&quot;, grepl(&quot;2014&quot;, Date) ~ &quot;2014&quot;))
+
+ggplot(Plot1, aes(Year, TempAvgF, fill = Type)) + geom_bar(stat = &quot;summary&quot;, 
+    fun.y = &quot;mean&quot;, position = &quot;dodge&quot;) + ggtitle(&quot;Average Temperature (F) by Year&quot;) + 
+    scale_y_continuous(breaks = seq(0, 100, 10)) + ylab(&quot;Average Temp (F)&quot;) + 
+    scale_fill_brewer(palette = &quot;Set3&quot;) + theme(legend.background = element_rect(fill = &quot;grey&quot;, 
+    size = 0.5, linetype = &quot;solid&quot;)) + geom_errorbar(stat = &quot;summary&quot;, 
+    width = 0.4, position = position_dodge(0.9))</code></pre>
+<p><img src="/project1_files/figure-html/plot1-1.png" width="672" style="display: block; margin: auto;" /> For this graph, I looked at the average temperature each year and the type of title watched (either a TV show or a movie). The graph did not produce any significant results, as much of the data looks similar from year to year. However, the graph does show that the temperature was slightly higher when I watched movies in 2014 and 2015 compared to TV shows. The graph also suggests that the average temperature was approximately the same for watching TV and movies in 2016 and 2017.</p>
+<pre class="r"><code>## ggplot2
+
+Plot2 &lt;- ProjectData %&gt;% mutate_at(c(&quot;PrecipitationSumInches&quot;), 
+    as.numeric)
+
+ggplot(Plot2, aes(Events, PrecipitationSumInches, fill = Type)) + 
+    geom_bar(stat = &quot;summary&quot;, fun.y = &quot;mean&quot;, position = &quot;dodge&quot;) + 
+    ggtitle(&quot;Average Precip Based on Weather Event&quot;) + labs(x = &quot;Event Type&quot;, 
+    y = &quot;Average Precipitation (in)&quot;) + theme(axis.text.x = element_text(angle = 45, 
+    hjust = 1)) + scale_fill_brewer(palette = &quot;Accent&quot;) + geom_errorbar(stat = &quot;summary&quot;, 
+    width = 0.2, position = position_dodge(0.9))</code></pre>
+<p><img src="/project1_files/figure-html/plot%202-1.png" width="672" style="display: block; margin: auto;" /> For this plot, I looked at the average amount of precipitation based on weather event while also looking at what type of Netflix was watched, either a movie or TV show. In the event of fog, rain and thunderstorm occuring simultaneously, the average precipitation was much higher than in other events. It also appears that it is more common to watch TV shows in inclement weather and higher precipitation than movies. However, on days with no significant weather events, the graph suggests that I was more inclined to watch a movie.</p>
+<p><strong>Dimensionality Reduction</strong></p>
+<pre class="r"><code>library(cluster)
+
+scale(ProjectDataNum)</code></pre>
+<pre><code>##            TempAvgF HumidityAvgPercent PrecipitationSumInches
+##   [1,]  1.385650048        -0.72464254             2.43639816
+##   [2,]  1.385650048        -0.72464254             2.43639816
+##   [3,]  1.385650048        -0.72464254             2.43639816
+##   [4,]  1.385650048        -0.72464254             2.43639816
+##   [5,]  1.385650048        -0.72464254             2.43639816
+##   [6,]  1.385650048        -0.72464254             2.43639816
+##   [7,]  1.385650048        -0.49214205            -0.52362779
+##   [8,]  1.385650048        -0.49214205            -0.52362779
+##   [9,]  1.385650048        -0.49214205            -0.52362779
+##  [10,]  1.385650048        -0.49214205            -0.52362779
+##  [11,]  1.385650048        -0.49214205            -0.52362779
+##  [12,]  1.385650048        -0.49214205            -0.52362779
+##  [13,]  1.385650048        -0.49214205            -0.52362779
+##  [14,]  1.316177357        -0.72464254            -0.41884811
+##  [15,]  1.316177357        -0.72464254            -0.41884811
+##  [16,]  1.316177357        -0.72464254            -0.41884811
+##  [17,]  1.316177357        -0.72464254            -0.41884811
+##  [18,]  1.316177357        -0.72464254            -0.41884811
+##  [19,]  1.316177357        -0.72464254            -0.41884811
+##  [20,]  1.316177357        -0.72464254            -0.52362779
+##  [21,]  1.316177357        -0.72464254            -0.52362779
+##  [22,]  1.316177357        -0.72464254            -0.52362779
+##  [23,]  1.385650048        -0.87964287             2.43639816
+##  [24,]  1.385650048        -0.87964287             2.43639816
+##  [25,]  1.385650048        -0.87964287             2.43639816
+##  [26,]  1.385650048        -0.87964287             2.43639816
+##  [27,]  1.385650048        -0.87964287             2.43639816
+##  [28,]  1.385650048        -0.87964287             2.43639816
+##  [29,]  1.385650048        -0.87964287             2.43639816
+##  [30,]  1.385650048        -0.87964287             2.43639816
+##  [31,]  1.385650048        -0.87964287             2.43639816
+##  [32,]  1.316177357        -0.87964287            -0.52362779
+##  [33,]  1.316177357        -0.87964287            -0.52362779
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 935 rows ]
+## attr(,&quot;scaled:center&quot;)
+##               TempAvgF     HumidityAvgPercent PrecipitationSumInches 
+##               71.05475               40.35021               20.98967 
+## attr(,&quot;scaled:scale&quot;)
+##               TempAvgF     HumidityAvgPercent PrecipitationSumInches 
+##               14.39415               12.90320               38.17534</code></pre>
+<pre class="r"><code>pam_dat &lt;- ProjectDataNum
+sil_width &lt;- vector()
+for (i in 2:10) {
+    pam_fit &lt;- pam(pam_dat, k = i)
+    sil_width[i] &lt;- pam_fit$silinfo$avg.width
+}
+
+ggplot() + geom_line(aes(x = 1:10, y = sil_width)) + scale_x_continuous(name = &quot;k&quot;, 
+    breaks = 1:10)</code></pre>
+<p><img src="/project1_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>pam1 &lt;- ProjectDataNum %&gt;% pam(k = 2)
+
+pam1</code></pre>
+<pre><code>## Medoids:
+##       ID TempAvgF HumidityAvgPercent PrecipitationSumInches
+## [1,] 191       75                 50                    114
+## [2,] 160       74                 39                      1
+## Clustering vector:
+##   [1] 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2
+##  [38] 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##  [75] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 868 entries ]
+## Objective function:
+##    build     swap 
+## 20.19171 19.67895 
+## 
+## Available components:
+##  [1] &quot;medoids&quot;    &quot;id.med&quot;     &quot;clustering&quot; &quot;objective&quot;  &quot;isolation&quot; 
+##  [6] &quot;clusinfo&quot;   &quot;silinfo&quot;    &quot;diss&quot;       &quot;call&quot;       &quot;data&quot;</code></pre>
+<pre class="r"><code>library(GGally)
+
+ProjectDataNum %&gt;% mutate(cluster = as.factor(pam1$clustering)) %&gt;% 
+    ggpairs(columns = 2:4, aes(color = cluster))</code></pre>
+<p><img src="/project1_files/figure-html/unnamed-chunk-3-2.png" width="672" style="display: block; margin: auto;" /> Before starting a cluster analysis, I chose three numeric variables and scaled them. Based on the graph created of mean silhoutte width, I chose to do 2 clusters for the analysis. I then chose to use PAM clustering and found several interesting results about the two clusters. Cluster 1 (shown in red) is characterized by higher average humidity and precipitation. On the other hand, Cluster 2 (shown in blue) is characterized by drier weather, such as lower average humidity levels and lower amounts of precipitation.</p>

@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1589391138692.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4AE768D7",
+    "lastKnownWriteTime" : 1589391367,
+    "last_content_update" : 1589391367090,
+    "path" : "~/Project 3/Wesbite/config.toml",
+    "project_path" : "config.toml",
+    "properties" : {
+        "cursorPosition" : "35,13",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "toml"
+}

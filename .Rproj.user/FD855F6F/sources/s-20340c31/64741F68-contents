@@ -1,0 +1,4 @@
+read.csv("austin_weather.csv")
+austin_weather<-austin_weather.csv
+
+blogdown::serve_site()
